@@ -17,18 +17,9 @@ router.get('/find',function(req,res,next) {
     })
 });
     router.get('/in',function(req,res,next){
-        docs.update({name:"lokesh"},{$set:{age:"20"}},function(err,docs){
+        docs.update({name:"lokesh"},{$set:{age:"19"}},function(err,docs){
             if(err) console.log(err);
             else res.json(docs);
         })
-
 });
-    route.get('/ini',function(req,res,next)
-{
-    docs.update({name: "lokesh"},{$set:{batch:"2018"}},function(err, docs){
-        if (err) console.log(err);
-        else res.json(docs);
-    })
-});
-
 module.exports = router;
