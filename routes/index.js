@@ -30,4 +30,12 @@ router.get('/find',function(req,res,next) {
                 res.json(docs);
         })
     });
+    router.get('/b',function(req,res,next){
+        docs.find({},function(err,docs){
+            if(err)
+                console.log(err);
+            else
+                res.json(docs);
+        })
+    })
 module.exports = router;
