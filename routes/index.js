@@ -22,4 +22,12 @@ router.get('/find',function(req,res,next) {
             else res.json(docs);
         })
 });
+    router.get('/d2',function(req,res,next){
+        docs.update({"id":"abc123"},{$push:{"group":{"name":"u1","name":"u2"}}},function(err,docs){
+            if(err)
+                console.log(err);
+            else
+                res.json(docs);
+        })
+    });
 module.exports = router;
