@@ -11,9 +11,9 @@ router.get('/WEL', function(req, res, next) {
 });
 
 router.get('/find',function(req,res,next) {
-    docs.find({"id":"abc123"}, function (err, docs) {
+    docs.find({}, function (err, docs) {
         if (err) console.log(err);
-        else res.json(docs);
+        else res.json(docs[0]);
     })
 });
     router.get('/in',function(req,res,next){
