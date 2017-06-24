@@ -4,6 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var cors=require('cors');
+var methodOverride=require('method-override');
+
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -24,6 +27,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use(methodOverride());
+app.use(cors());
+app.use(function(req, res, next){
+  res.header("Acess-Control-Allow-Origin", "*");
+    res.header("Acess-Control-Allow-Origin", 'DELETE, PUT');
+    res.header("Acess-Control-Allow-Origin", "Origin, X-Requested-with,Content-type,Accept");
+    next();
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
